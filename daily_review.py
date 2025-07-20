@@ -12,7 +12,9 @@ def open_review_in_textedit(reviews_by_cat: dict):
     lines = []
     for cat, items in reviews_by_cat.items():
         lines.append(f"【{cat}】")
-        lines.extend(items)
+        for item in items:
+            lines.append(item)
+            lines.append("")  # Blank line between items
         lines.append("")  # Blank line between categories
 
     content = "\n".join(lines)
