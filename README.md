@@ -30,4 +30,6 @@ then add
 ```bash
 0 8 * * * PATH_TO_Python3 /full/path/to/daily_review.py
 ```
- 
+
+## AI Disclaimer
+The code in this repo is developped mainly manually with assistance of ChatGPT. It is then debugged with assistance of ChatGPT.
