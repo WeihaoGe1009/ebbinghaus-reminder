@@ -1,4 +1,5 @@
 import sqlite3
+import os
 from modules.review_today import get_today_reviews_by_category
 
 def open_review_in_textedit(reviews_by_cat: dict):
@@ -25,7 +26,10 @@ def open_review_in_textedit(reviews_by_cat: dict):
     subprocess.run(["open", "-a", "TextEdit", temp_path])
 
 # --- Main execution ---
-with sqlite3.connect("review_items.db") as conn:
+script_dir = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(script_dir, 'review_items.db')
+
+with sqlite3.connect(db_path) as conn:
     reviews = get_today_reviews_by_category(conn)
 
 open_review_in_textedit(reviews)
